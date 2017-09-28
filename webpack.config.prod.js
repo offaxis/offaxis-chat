@@ -23,7 +23,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist/client/',
     filename: '[name].[chunkhash].js',
-    publicPath: 'http://lab.offaxis.io/chat/',
+    publicPath: '/',
   },
 
   resolve: {

@@ -55,17 +55,19 @@ const RoomReducer = (state = initialState, action) => {
                 ...state,
                 data: state.data.map(room => {
                     if(room && room.cuid === action.user.activeRoom.cuid) {
-                        return {
-                            ...room,
-                            participantsData: room.participantsData.map(user => {
-                                if(user && user.cuid == action.user.cuid) {
-                                    return {
-                                        ...user,
-                                        isWritting: action.isWritting
+                        if(room.participantsData) {
+                            return {
+                                ...room,
+                                participantsData: room.participantsData.map(user => {
+                                    if(user && user.cuid == action.user.cuid) {
+                                        return {
+                                            ...user,
+                                            isWritting: action.isWritting
+                                        }
                                     }
-                                }
-                                return user;
-                            })
+                                    return user;
+                                })
+                            }
                         }
                     }
                     return room;

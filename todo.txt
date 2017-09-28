@@ -1,0 +1,15 @@
+Roles :
+    - Limit access depending on logged in user
+
+Realtime :
+    #- socket.io
+
+Rooms :
+    #- List participants
+    #- List messages
+    #- Join room
+    #- UnJoin room
+    #- Add message
+
+Users :
+    - List users [admin]

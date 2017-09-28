@@ -1,0 +1,12 @@
+.userProfileImage {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 5px 0;
+    line-height: 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    background: #123456;
+}

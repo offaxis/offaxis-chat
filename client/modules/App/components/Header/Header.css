@@ -1,0 +1,50 @@
+.header {
+  /*background: #eee url('../../header-bk.png') center;*/
+  /*background-size: cover;*/
+  border-bottom: 1px solid #ccc;
+}
+
+.content {
+  width: 100%;
+  max-width: 980px;
+  margin: auto;
+  padding: 64px 16px;
+  overflow: auto;
+}
+
+.site-title {
+  font-weight: 300;
+  font-size: 42px;
+  float: left;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: #111;
+}
+
+.language-switcher {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.language-switcher ul {
+  list-style: none;
+  width: 980px;
+  margin: auto;
+  text-align: right;
+}
+
+.language-switcher li {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
+  color: #111;
+}
+
+.selected {
+  border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 767px){
+}

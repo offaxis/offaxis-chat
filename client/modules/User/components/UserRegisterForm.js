@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { injectIntl, FormattedMessage } from 'react-intl';
-import { Row, Col, Card, CardHeader, CardBlock, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Row, Col, Card, CardHeader, CardBlock, Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 
 export class UserRegisterForm extends Component {
 
@@ -69,7 +69,7 @@ export class UserRegisterForm extends Component {
                             this.state.error
                             ?
                                 <Alert color="danger">
-                                    this.state.message
+                                    {this.state.message}
                                 </Alert>
                             : ''
                         }

@@ -27,10 +27,12 @@ const UserReducer = (state = initialState, action) => {
         case LOGIN_USER:
             if( storage ) {
                 // Save token in local storage
+                console.log('stored Token', action.token);
                 storage.setItem('jwtToken', action.token);
             }
             action.user.token = action.token;
             action.user.connected = 1;
+            console.log(Object.assign({}, state.user, action.user));
             return {
                 ...state,
                 user: Object.assign({}, state.user, action.user)

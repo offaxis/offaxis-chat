@@ -22,9 +22,11 @@ export const SET_USER_IS_WRITTING = 'SET_USER_IS_WRITTING';
 export function registerRequest(email, password, name) {
     return (dispatch) => {
         return callApi('user/register', 'post', {email: email, password: password, name: name}).then(res => {
+            console.log(res);
             if(res.user) {
-                dispatch(registerUser(res.user));
-                loginRequest(res.user.email, res.user.password);
+                // dispatch(registerUser(res.user, res.token));
+                dispatch(loginUser(res.user, res.token));
+                dispatch(isLoggedIn());
             }
         });
     };
@@ -33,13 +35,16 @@ export function registerRequest(email, password, name) {
 export function loginRequest(email, password) {
     return (dispatch) => {
         return callApi('user/login', 'post', {email: email, password: password}).then(res => {
-            dispatch(loginUser(res.user, res.token));
-            dispatch(sendSocket({type: 'userConnection', data: res.user}));
+            if(res.user) {
+                dispatch(loginUser(res.user, res.token));
+                dispatch(isLoggedIn());
+            }
         });
     }
 }
 
 export function isLoggedIn() {
+    console.log('isLoggedIn');
     return (dispatch) => {
         return callApi('user/getloggeduser').then(res => {
             if(res.user) {

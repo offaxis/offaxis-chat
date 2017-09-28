@@ -23,7 +23,7 @@ import { getRooms } from '../../RoomReducer';
 class RoomListPage extends Component {
 
     componentDidMount() {
-        if(this.props.user.cuid && !this.props.rooms.length) {
+        if(!this.props.rooms.length) {
             this.props.dispatch(fetchRooms());
         }
     }

@@ -23,7 +23,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist/client/',
     filename: '[name].[chunkhash].js',
-    publicPath: '/',
+    publicPath: '/chat/',
   },
 
   resolve: {

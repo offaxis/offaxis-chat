@@ -6,7 +6,6 @@ exports = module.exports = function(io) {
 
 
         socket.on('disconnect', (reason) => {
-            console.log(reason);
             var i = connected_users.indexOf(socket.user);
             if(i >= 0) {
                 socket.broadcast.emit('userDisconnected', socket.user);

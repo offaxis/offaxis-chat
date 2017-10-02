@@ -98,7 +98,7 @@ const renderFullPage = (html, initialState) => {
 
         ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'/>
-        <link rel="shortcut icon" href="http://offaxis.io/favicon.io" type="image/png" />
+        <link rel="shortcut icon" href="http://offaxis.io/favicon.ico" type="image/png" />
       </head>
       <body>
         <div id="root"><div>${html}</div></div>

@@ -56,18 +56,15 @@ export class UserLoginForm extends Component {
                                     </Col>
                                 </Row>
                             </FormGroup>
+                            {
+                                this.state.error
+                                ? <Alert color="danger">{this.state.message}</Alert>
+                                : ''
+                            }
                             <FormGroup>
                                 <Button  color="success" block><FormattedMessage id="submit" /></Button>
                             </FormGroup>
                         </Form>
-                        {
-                            this.state.error
-                            ?
-                                <Alert color="danger">
-                                    this.state.message
-                                </Alert>
-                            : ''
-                        }
                     </CardBlock>
                 </Card>
             </div>

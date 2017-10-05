@@ -3,6 +3,7 @@ import callApi from '../../util/apiCaller';
 import { browserHistory } from 'react-router';
 
 import { sendSocket } from '../App/AppActions';
+import { displayErrors } from '../Error/ErrorActions';
 
 // Export Constants
 export const REGISTER_USER = 'REGISTER_USER';
@@ -36,8 +37,12 @@ export function loginRequest(email, password) {
     return (dispatch) => {
         return callApi('user/login', 'post', {email: email, password: password}).then(res => {
             if(res.user) {
+                browserHistory.push('/');
                 dispatch(loginUser(res.user, res.token));
                 dispatch(isLoggedIn());
+                displayErrors('success', `Bienvenue ${res.user.name}!`);
+            } else {
+                displayErrors('error', 'Veuillez vérifier vos identifiants de connexion !');
             }
         });
     }

@@ -16,7 +16,6 @@ class UserLoginPage extends Component {
 
     handleLogin(email, password) {
         this.props.dispatch(loginRequest(email, password));
-        this.props.history.push('/');
     }
 
     render() {

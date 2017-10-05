@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import io from 'socket.io-client';
 import { Container, Row, Col } from 'reactstrap';
+import Alert from 'react-s-alert';
 
 // Import Style
 import 'bootstrap/dist/css/bootstrap.css';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/flip.css';
 import styles from './App.css';
 
 // Import Components
@@ -106,6 +109,7 @@ export class App extends Component {
                                 }
                             </Container>
                             <Footer />
+                            <Alert stack={true} position='top-right' effect='flip' timeout={3000} />
                         </div>
                     : null
                 }

@@ -59,9 +59,14 @@ export function fetchMessages(room) {
 export function addRoomRequest(title) {
     return (dispatch) => {
         return callApi('rooms/add', 'post', {room: {title: title}}).then(res => {
-            dispatch(addRoom(res.room));
-            dispatch(sendSocket({type: 'addRoom', data: res.room}));
-            dispatch(joinRoomRequest(res.room));
+            if(res.room) {
+                dispatch(addRoom(res.room));
+                dispatch(sendSocket({type: 'addRoom', data: res.room}));
+                dispatch(joinRoomRequest(res.room));
+                displayErrors('success', 'Discussion créée !');
+            } else {
+                displayErrors('error', 'Impossible d\'ajouter une discussion ! Veuillez recommencer...');
+            }
         });
     };
 }
@@ -89,8 +94,10 @@ export function unJoinRoomRequest(room) {
                 dispatch(updateRoom(res.room, 'participants'))
                 dispatch(removeUserJoinedRoom(res.room));
                 dispatch(sendSocket({type: 'unJoinRoom', data: res.room}));
+                displayErrors('warning', `Bye Bye ${res.room.title} !`);
                 browserHistory.push('/');
             } else {
+                displayErrors('error', 'Impossible de quitter la discussion ! Veuillez recommencer...');
             }
             dispatch(displayErrors(res));
         })

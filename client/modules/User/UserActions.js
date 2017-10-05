@@ -28,6 +28,9 @@ export function registerRequest(email, password, name) {
                 // dispatch(registerUser(res.user, res.token));
                 dispatch(loginUser(res.user, res.token));
                 dispatch(isLoggedIn());
+                displayErrors('success', `Bienvenue ${res.user.name}!`);
+            } else {
+                displayErrors('error', 'Impossible de vous enregistrer ! Veuillez recommencer...');
             }
         });
     };

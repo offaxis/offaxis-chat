@@ -99,7 +99,6 @@ export function unJoinRoomRequest(room) {
             } else {
                 displayErrors('error', 'Impossible de quitter la discussion ! Veuillez recommencer...');
             }
-            dispatch(displayErrors(res));
         })
     };
 }
